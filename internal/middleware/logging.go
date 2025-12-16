@@ -38,13 +38,13 @@ func Logger(log *logger.Logger, next http.Handler) http.Handler {
 
 		recorder := &statusRecorder{
 			ResponseWriter: w,
-			status:         http.StatusOK,
+			status:         http.StatusOK, //Redundant
 		}
 
 		next.ServeHTTP(recorder, r)
 
 		log.Info(r.Context(), "request completed", "method", r.Method, "path", path, "remoteaddr", r.RemoteAddr,
-			"statuscode", recorder.status, "since", time.Since(now).String())
+			"statuscode", recorder.status, "duration", time.Since(now).String())
 
 	})
 }
