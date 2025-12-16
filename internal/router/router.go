@@ -35,7 +35,9 @@ func NewRouter(cfg Config) http.Handler {
 	}).Methods("GET")
 	cfg.Log.Info(context.Background(), "Registered static route", "path", "/health")
 
-	//middleware chain here
+	m.HandleFunc("/panic", func(w http.ResponseWriter, r *http.Request) {
+		panic("WE ARE PANICKING!!!")
+	})
 
 	// DYNAMIC ROUTES FROM CONFIG
 	for _, rt := range cfg.Routes {
