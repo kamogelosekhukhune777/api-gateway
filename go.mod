@@ -3,7 +3,6 @@ module github.com/kamogelosekhukhune777/api-gateway
 go 1.25.2
 
 require (
-	github.com/ardanlabs/conf/v3 v3.10.0
 	github.com/google/uuid v1.6.0
 	github.com/gorilla/mux v1.8.1
 	go.opentelemetry.io/otel v1.39.0
